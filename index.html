@@ -1182,7 +1182,7 @@ async function boot(){
   renderAll();
 }
 /* ---------- PIN gate ---------- */
-const PIN_HASH = 'ed946f65d2c785d90e827c5ffd879ce3b49c68d4c88013074176a7e73bc58bcf';
+const PIN_HASH = 'c0292cea5694e8373a84a6644117de2921138f53b1e71650dbf74301c83106e4';
 function sha256hex(s){
   return crypto.subtle.digest('SHA-256', new TextEncoder().encode(s))
     .then(b => Array.from(new Uint8Array(b)).map(x => x.toString(16).padStart(2, '0')).join(''));
@@ -1195,7 +1195,7 @@ function sha256hex(s){
   const tryUnlock = async () => {
     let ok = false;
     try { ok = (await sha256hex(inp.value)) === PIN_HASH; }
-    catch(e){ ok = inp.value === '2580'; }
+    catch(e){ ok = inp.value === '185614'; }
     if (ok){
       g.classList.add('hide');
       setTimeout(() => g.remove(), 380);
